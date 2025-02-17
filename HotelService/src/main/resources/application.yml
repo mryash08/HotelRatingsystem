@@ -1,0 +1,23 @@
+server:
+  port: 5001
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:5003/eureka/
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/hotelService
+    username: postgres
+    password: Y@sh81530
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+

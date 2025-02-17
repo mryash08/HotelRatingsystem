@@ -1,0 +1,17 @@
+server:
+  port: 5002
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:5003/eureka/
+
+
+spring:
+  data:
+    mongodb:
+      uri: mongodb+srv://root:Yash81530@ratingdata.53gau.mongodb.net/ratingdata?retryWrites=true&w=majority&appName=ratingdata
