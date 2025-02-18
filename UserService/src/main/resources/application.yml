@@ -13,15 +13,59 @@ spring:
     show-sql: true
     properties:
       dialect: org.hibernate.dialect.MySQL5Dialect
+  config:
+    import: configserver:http://localhost:5005
+
+management:
+  health:
+    circuitbreakers:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: health
+
+  endpoint:
+    health:
+      show-details: always
 
 
-eureka:
-  instance:
-    prefer-ip-address: true
-  client:
-    register-with-eureka: true
-    fetch-registry: true
-    service-url:
-      defaultZone: http://localhost:5003/eureka/
+
+resilience4j:
+  circuitbreaker:
+    instances:
+      ratingHotelBreaker:
+        registerHealthIndicator: true
+        eventConsumerBufferSize: 10
+        failureRateThreshold: 50
+        minimumNumberOfCalls: 5
+        automaticTransitionFromOpenToHalfOpenEnabled: true
+        waitDurationInOpenState: 6s
+        permittedNumberOfCallsInHalfOpenState: 3
+        slidingWindowSize: 10
+        slidingWindowType: COUNT_BASED
+
+  retry:
+    instances:
+      ratingHotelRetry:
+        max-attempts: 3
+        wait-duration: 5s
+
+  ratelimiter:
+      instances:
+        ratingHotelLimiter:
+            limit-for-period: 3
+            limit-refresh-period: 4s
+            timeout-duration: 1s
+
+
+#eureka:
+#  instance:
+#    prefer-ip-address: true
+#  client:
+#    register-with-eureka: true
+#    fetch-registry: true
+#    service-url:
+#      defaultZone: http://localhost:5003/eureka/
 
 

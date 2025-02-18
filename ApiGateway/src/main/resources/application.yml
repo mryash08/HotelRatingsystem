@@ -3,14 +3,14 @@ server:
 
 
 
-eureka:
-  instance:
-    prefer-ip-address: true
-  client:
-    fetch-registry: true
-    register-with-eureka: true
-    service-url:
-      defaultZone: http://localhost:5003/eureka
+#eureka:
+#  instance:
+#    prefer-ip-address: true
+#  client:
+#    fetch-registry: true
+#    register-with-eureka: true
+#    service-url:
+#      defaultZone: http://localhost:5003/eureka
 
 spring:
   application:
@@ -32,4 +32,6 @@ spring:
           uri: lb://RATINGSERVICE
           predicates:
             - Path=/ratings/**
+  config:
+    import: configserver:http://localhost:5005
 

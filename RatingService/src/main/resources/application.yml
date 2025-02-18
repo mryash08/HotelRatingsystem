@@ -12,6 +12,8 @@ eureka:
 
 
 spring:
+  config:
+    import: configserver:http://localhost:5005
   data:
     mongodb:
       uri: mongodb+srv://root:Yash81530@ratingdata.53gau.mongodb.net/ratingdata?retryWrites=true&w=majority&appName=ratingdata
