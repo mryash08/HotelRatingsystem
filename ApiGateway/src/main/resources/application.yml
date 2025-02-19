@@ -35,3 +35,12 @@ spring:
   config:
     import: configserver:http://localhost:5005
 
+okta:
+  oauth2:
+    issuer: https://dev-52510420.okta.com/oauth2/default
+    audience: api://default
+    client-id: 0oang88k0v7Vw2Ybl5d7
+    client-secret: OwynAtSITDdOwmvkZe3FiDRZM_ZzJOXd8dj157iXyqeH61n6umU3fMBG55VTCUuu
+    scope: openid profile email offline_access
+
+

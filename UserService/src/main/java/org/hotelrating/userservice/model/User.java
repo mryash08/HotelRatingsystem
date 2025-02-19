@@ -1,8 +1,9 @@
 package org.hotelrating.userservice.model;
 
-import jakarta.persistence.*;
 import lombok.*;
 
+import javax.persistence.*;
+import javax.persistence.Table;
 import java.util.ArrayList;
 import java.util.List;
 

@@ -15,6 +15,23 @@ spring:
       dialect: org.hibernate.dialect.MySQL5Dialect
   config:
     import: configserver:http://localhost:5005
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: https://dev-52510420.okta.com/oauth2/default
+      client:
+        registration:
+          my-internal-client:
+            provider: okta
+            authorization-grant-type: client_credentials
+            scope: internal
+            client-id: 0oang88k0v7Vw2Ybl5d7
+            client-secret: JfsTTqODW21uapbbhKjW42sGzjcNs86GN7WL5dfU
+
+        provider:
+          okta:
+            issuer-uri: https://dev-52510420.okta.com/oauth2/default
 
 management:
   health:
@@ -57,6 +74,12 @@ resilience4j:
             limit-for-period: 3
             limit-refresh-period: 4s
             timeout-duration: 1s
+
+
+okta:
+  oauth2:
+    issuer: https://dev-52510420.okta.com/oauth2/default
+    audience: api://default
 
 
 #eureka:
