@@ -17,3 +17,9 @@ spring:
   data:
     mongodb:
       uri: mongodb+srv://root:Yash81530@ratingdata.53gau.mongodb.net/ratingdata?retryWrites=true&w=majority&appName=ratingdata
+
+
+okta:
+  oauth2:
+    issuer: https://dev-52510420.okta.com/oauth2/default
+    audience: api://default

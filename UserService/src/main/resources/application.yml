@@ -27,7 +27,7 @@ spring:
             authorization-grant-type: client_credentials
             scope: internal
             client-id: 0oang88k0v7Vw2Ybl5d7
-            client-secret: JfsTTqODW21uapbbhKjW42sGzjcNs86GN7WL5dfU
+            client-secret: OwynAtSITDdOwmvkZe3FiDRZM_ZzJOXd8dj157iXyqeH61n6umU3fMBG55VTCUuu
 
         provider:
           okta:

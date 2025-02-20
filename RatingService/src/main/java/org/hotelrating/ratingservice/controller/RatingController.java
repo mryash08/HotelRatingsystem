@@ -6,6 +6,7 @@ import org.hotelrating.ratingservice.service.RatingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,6 +18,7 @@ public class RatingController {
     @Autowired
     private RatingService ratingService;
 
+    @PreAuthorize("hasAuthority('Admin')")
     //create rating
     @PostMapping
     public ResponseEntity<Rating> create(@RequestBody Rating rating) {
@@ -29,6 +31,7 @@ public class RatingController {
     public ResponseEntity<List<Rating>> getRatings() {
         return ResponseEntity.ok(ratingService.getRatings());
     }
+
 
     //get all of user
     @GetMapping("/users/{userId}")

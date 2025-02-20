@@ -1,10 +1,14 @@
 package org.hotelrating.apigateway.Models;
 
-import lombok.Data;
+import lombok.*;
 
 import java.util.Collection;
 
 @Data
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class AuthResponse {
 
     private String userId;
