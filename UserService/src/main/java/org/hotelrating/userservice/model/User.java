@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import javax.persistence.Table;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,8 +15,9 @@ import java.util.List;
 @Builder
 @Entity
 @Table(name = "micro_users")
-public class User {
+public class User implements Serializable {
 
+    private static final long serialVersionUID = 1L;
     @Id
     @Column(name = "ID")
     private String userId;
